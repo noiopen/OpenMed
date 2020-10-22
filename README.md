@@ -1,4 +1,4 @@
-# OpenMed
+# OpenMED
 
 ## Presentazione
 
