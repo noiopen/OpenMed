@@ -1,39 +1,67 @@
-## Info action
+# Info action
 
-### Descrizione
+## Descrizione
 
 Restituisce un array contenente gli oggetti presenti nel DB _facility_ su Cloudant
+
+## Creazione del file .env
+
+  ```bash
+  # posizionarsi a livello del package.json
+  npm install dotenv
+  touch .env
+  echo "cloudant_url>=<env_variable_value>" >> .env
+  echo "cloudant_api_key>=<env_variable_value>" >> .env
+  ```
 
 ### Parametri .env
 
 * **cloudant_url**: url di connessione al package Cloudant. Recuperabile tramite
-	```
-  ibmcloud fn package get <cloudant_package_name> parameters
-  ```
-* **cloudant_api_key**: url di connessione al package Cloudant. Recuperabile tramite
-	```
+
+```bash
   ibmcloud fn package get <cloudant_package_name> parameters
   ```
 
-### Parametri action
+* **cloudant_api_key**: url di connessione al package Cloudant. Recuperabile tramite
+
+```bash
+  ibmcloud fn package get <cloudant_package_name> parameters
+  ```
+
+## Parametri action
 
 Nessun parametro
 
-### Definizione action
+## Definizione action
 
 * Creazione package, se inesistente
-  ```
+
+  ```bash
   ibmcloud fn package create facility
   ```
 
-* Creazione action
+* Creazione del file da caricare come action
+
+  ```bash
+  # posizionarsi a livello del package.json
+  zip -r <js_action_name.zip> .
   ```
+
+* Creazione di una action
+
+  ```bash
+  ibmcloud fn action create <package_name>/<action_name> --kind nodejs:10 <js_action_name.zip>
+  ```
+
+* Creazione action
+
+  ```bash
   ibmcloud fn action create facility/getFacilities --kind nodejs:10 <path_to_zip>
   ```
 
-### Esempio chiamata
+## Esempio chiamata
 
-  ```
+  ```bash
   ibmcloud fn action invoke --result facility/getFacilities
   
   > {
@@ -71,5 +99,5 @@ Nessun parametro
             "name": "TRP Company"
         }
       ]
-    } 
+    }
   ```

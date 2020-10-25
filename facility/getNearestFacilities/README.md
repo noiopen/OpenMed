@@ -1,6 +1,6 @@
-## Info composition
+# Info composition
 
-### Descrizione
+## Descrizione
 
 Data una coppia di coordinate, restituisce la facility più vicina alle coordinate in input tra quelle restituite dalla action _getFacilities_
 
@@ -13,29 +13,33 @@ Data una coppia di coordinate, restituisce la facility più vicina alle coordina
 ### Definizione composition
 
 * Installazione di openwhisk-composer, se non installato
-  ```
+
+  ```bash
   npm install -g openwhisk-composer
   compose -h # Verifica che l'installazione abbia avuto successo
   ```
 
 * Creazione package, se inesistente
-  ```
+
+  ```bash
   ibmcloud fn package create facility
   ```
 
 * Creazione composition
-  ```
+
+  ```bash
   compose index.js > getNearestFacilities.json
   ```
 
 * Deploy composition
-  ```
+
+  ```bash
   deploy facility/getNearestFacilities getNearestFacilities.json
   ```
 
 ### Esempio chiamata
 
-  ```
+  ```bash
   ibmcloud fn action invoke --result facility/getNearestFacilities --param longitude 45.90 --param latitude 56.90
   
   > {
@@ -57,3 +61,4 @@ Data una coppia di coordinate, restituisce la facility più vicina alle coordina
       }
     }
   ```
+  
