@@ -18,8 +18,8 @@ Raccoglie le funzionalità e le informazioni relative alle facilities
   ibmcloud target --cf
   ```
 
-* deployare la action [getFacilities](./getFacilities/README.md) che si occupa di restituire tutte le facility disponibili
+* Action [getFacilities](./getFacilities/README.md) : restituisce la lista di tutte le facility disponibili
 
-* deployare la action [getNearestFacilitiesFromList](./getNearestFacilitiesFromList/README.md) che dato un elenco di facilities e una coppia di coordinate, restituisce la facility più vicina alle coordinate in input
+* Action [getNearestFacilitiesFromList](./getNearestFacilitiesFromList/README.md) : dato un elenco di facilities e una coppia di coordinate, restituisce la facility più vicina alle coordinate in input
 
-* deployare la action [getNearestFacilities](./getNearestFacilities/README.md) che data una coppia di coordinate, restituisce la facility più vicina alle coordinate in input tra quelle restituite dalla action _getFacilities_
+* Action [getNearestFacilities](./getNearestFacilities/README.md) : data una coppia di coordinate, restituisce la facility più vicina alle coordinate in input tra quelle disponibili (necessita delle prime due per funzionare)
