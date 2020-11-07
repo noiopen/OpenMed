@@ -10,8 +10,8 @@ Restituisce un array contenente gli oggetti presenti nel DB _facility_ su Clouda
   # posizionarsi a livello del package.json
   npm install dotenv
   touch .env
-  echo "cloudant_url>=<env_variable_value>" >> .env
-  echo "cloudant_api_key>=<env_variable_value>" >> .env
+  echo "cloudant_url=<env_variable_value>" >> .env
+  echo "cloudant_api_key=<env_variable_value>" >> .env
   ```
 
 ### Parametri .env
@@ -34,29 +34,28 @@ Nessun parametro
 
 ## Definizione action
 
+* Creazione dello zip: posizionarsi nella directory "getFacilities" e lanciare
+
+  ```bash
+  zip -r getFacilities .
+  ```
+
 * Creazione package, se inesistente
 
   ```bash
   ibmcloud fn package create facility
   ```
 
-* Creazione del file da caricare come action
+* Creazione della action
 
   ```bash
-  # posizionarsi a livello del package.json
-  zip -r <js_action_name.zip> .
+  ibmcloud fn action create facility/getFacilities --kind nodejs:12 getFacilities.zip
   ```
 
-* Creazione di una action
+  in caso di aggiornamento, ricreare il file .zip e lanciare il seguento comando:
 
   ```bash
-  ibmcloud fn action create <package_name>/<action_name> --kind nodejs:10 <js_action_name.zip>
-  ```
-
-* Creazione action
-
-  ```bash
-  ibmcloud fn action create facility/getFacilities --kind nodejs:10 <path_to_zip>
+  ibmcloud fn action update facility/getFacilities --kind nodejs:12 getFacilities.zip
   ```
 
 ## Esempio chiamata
