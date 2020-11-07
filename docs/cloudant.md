@@ -3,45 +3,83 @@
 ## Configurazione
 
 * Link con documentazione completa:
-  * [Cloudant](https://cloud.ibm.com/docs/openwhisk?topic=openwhisk-pkg_cloudant)
   * [Creazione di un'instanza Cloudant su IBM Cloud](https://cloud.ibm.com/docs/Cloudant?topic=Cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud-by-using-the-ibm-cloud-cli)
+  * [Cloudant](https://cloud.ibm.com/docs/openwhisk?topic=openwhisk-pkg_cloudant)
 
 * Creare un account personale [Cloudant](https://www.ibm.com/it-it/cloud/cloudant):
 
-* Creare un package di servizio Cloudant
+* Fare il login su IBMCloud
 
   ```bash
-  ibmcloud fn package bind /whisk.system/cloudant <cloudant_package_name>
+  ibmcloud login
   ```
 
-* Elencare le risorse attive (tra cui il package appena creato)
+* Impostare un target (ad esempio allo spazio di sviluppo personale) su IBMCloud
+
+  ```bash
+  ibmcloud target -o "indirizzo@email.com" -s "dev" -g Default
+  ```
+
+* Creare l'istanza di servizio Cloudant. Il comando restituisce il nome dell'istanza appena creata
+
+  ```bash
+  # Comando generico
+  ibmcloud resource service-instance-create SERVICE_INSTANCE_NAME cloudantnosqldb lite eu-de -p '{"legacyCredentials":false}'
+
+  # Comando di esempio
+  ibmcloud resource service-instance-create CloudantService cloudantnosqldb lite eu-de -p '{"legacyCredentials":false}'
+  ```
+
+* Elencare le istanze di servizio attive (tra cui l'istanza appena creata)
 
   ```bash
   ibmcloud resource service-instances
   ```
 
-* Creare le credenziali per il package Cloudant
+* Creare le credenziali di accesso al servizio Cloudant
 
   ```bash
-  ibmcloud resource service-key-create <credentials_name> Manager --instance-name <cloudant_instance_name>
+  # Comando generico
+  ibmcloud resource service-key-create CREDENTIALS_NAME Manager --instance-name SERVICE_INSTANCE_NAME
+
+  # Comando di esempio
+  ibmcloud resource service-key-create CloudantServiceCreds Manager --instance-name CloudantService
   ```
 
-* Elencare le credenziali per il package Cloudant
+* Elencare le credenziali attive (tra cui quelle appena create)
 
   ```bash
-  ibmcloud resource service-keys --instance-name <cloudant_instance_name>
+  ibmcloud resource service-keys
   ```
 
-* Creare un bind tra il package Cloudant e le Functions, usando le credenziali definite prima
+* Creare un package che punta al servizio Cloudant appena creato
 
   ```bash
-  ibmcloud fn service bind cloudantnosqldb <cloudant_bind_name> --instance <cloudant_instance_name> --keyname '<credentials_name>'
+  # Comando generico
+  ibmcloud fn package bind /whisk.system/cloudant PACKAGE_NAME
+
+  #Comando di esempio
+  ibmcloud fn package bind /whisk.system/cloudant CloudantPackage
+  `````
+
+* Creare un bind tra il servizio Cloudant e il package appena creato, usando le credenziali definite prima
+
+  ```bash
+  # Comando generico
+  ibmcloud fn service bind cloudantnosqldb PACKAGE_NAME --instance SERVICE_INSTANCE_NAME --keyname CREDENTIALS_NAME
+
+  #Comando di esempio
+  ibmcloud fn service bind cloudantnosqldb CloudantPackage --instance CloudantService --keyname CloudantServiceCreds
   ```
 
 * Verificare che il bind sia avvenuto con successo
 
   ```bash
-  ibmcloud fn package get <cloudant_package_name> parameters
+  # Comando generico
+  ibmcloud fn package get PACKAGE_NAME parameters
+
+  #Comando di esempio
+  ibmcloud fn package get CloudantPackage parameters
   ```
 
 Nella directory [models](../models) sono a disposizione due file .json che contengono i dati di prova per le facility e gli user e che si possono facilmente importare nel proprio account Cloudant.
