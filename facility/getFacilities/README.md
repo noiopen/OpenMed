@@ -7,8 +7,7 @@ Restituisce un array contenente gli oggetti presenti nel DB _facility_ su Clouda
 ## Creazione del file .env
 
   ```bash
-  # posizionarsi a livello del package.json
-  npm install dotenv
+  # posizionarsi nella directory "getFacilities"
   touch .env
   echo "cloudant_url=<env_variable_value>" >> .env
   echo "cloudant_api_key=<env_variable_value>" >> .env
