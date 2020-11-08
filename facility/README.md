@@ -15,6 +15,12 @@ Raccoglie le funzionalità e le informazioni relative alle facilities
 * Specificare un target "org" e "space"
 
 ```bash
+  ibmcloud target -o "indirizzo@email.com" -s "dev" -g Default
+  ```
+  
+  per verificare
+
+```bash
   ibmcloud target --cf
   ```
 

@@ -36,6 +36,12 @@ Nessun parametro
   ibmcloud fn action create facility/getNearestFacilitiesFromList --kind nodejs:12 getNearestFacilitiesFromList.zip
   ```
 
+  in caso di aggiornamento
+
+  ```bash
+  ibmcloud fn action update facility/getNearestFacilitiesFromList --kind nodejs:12 getNearestFacilitiesFromList.zip
+  ```
+
 ### Esempio chiamata
 
   ```bash
