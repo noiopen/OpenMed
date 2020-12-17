@@ -82,4 +82,12 @@
   ibmcloud fn package get CloudantPackage parameters
   ```
 
-Nella directory [models](../models) sono a disposizione due file .json che contengono i dati di prova per le facility e gli user e che si possono facilmente importare nel proprio account Cloudant.
+## Popolamento dati
+
+* Dalla dashboard di IBMCloud, accedere all'elenco risorse e selezionare il servizio Cloudant
+
+* Dalla pagina di dettaglio del servizio lanciare la dashboard Cloudant
+
+* Nella pagina 'Databases' creare il database 'facility'
+
+* Accedere al database appena creato e creare i documenti fittizi elencati nel file [facility.json](../models/facility.json)
