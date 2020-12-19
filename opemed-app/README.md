@@ -1,5 +1,7 @@
 # OpenMED-app
 
+Questa applicazione è una GUI che permette di interagire con le funzionalità della piattaforma OpenMED. Per accedere è necessario prima configurare alcuni componenti, come descritto nei paragrafi successivi.
+
 ## Prerequisiti
 
 Affinchè l'applicativo funzioni correttamente è necessario:
