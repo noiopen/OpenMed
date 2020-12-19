@@ -34,7 +34,7 @@ Data una coppia di coordinate, restituisce la facility più vicina alle coordina
 * Deploy composition
 
   ```bash
-  deploy facility/getNearestFacilities getNearestFacilities.json
+  deploy facility/getNearestFacilities getNearestFacilities.json --kind nodejs:12
   ```
 
 ### Esempio chiamata

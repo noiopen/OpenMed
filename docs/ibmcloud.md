@@ -35,25 +35,25 @@
 - Elenco delle action disponibili
 
   ```bash
-  ibmcloud ibmcloud fn action list
+  ibmcloud fn action list
   ```
 
 - Creazione o aggiornamento di una action
 
   ```bash
-  ibmcloud ibmcloud fn action [create | update] <package_name>/<action_name> <action_file>
+  ibmcloud fn action [create | update] <package_name>/<action_name> <action_file>
   ```
 
 - Cancellazione di una action
 
   ```bash
-  ibmcloud ibmcloud fn action delete <package_name>/<action_name>
+  ibmcloud fn action delete <package_name>/<action_name>
   ```
 
 - Mostra i dettagli di una action
 
   ```bash
-  ibmcloud ibmcloud fn action get <package_name>/<action_name>
+  ibmcloud fn action get <package_name>/<action_name>
   ```
 
 - Invocazione di una action

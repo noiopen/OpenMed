@@ -15,13 +15,13 @@ Restituisce un array contenente gli oggetti presenti nel DB _facility_ su Clouda
 
 ### Parametri .env
 
-* **cloudant_url**: url di connessione al package Cloudant. Recuperabile tramite
+* **cloudant_url**: url di connessione al package Cloudant (attributo 'url'). Recuperabile tramite:
 
 ```bash
   ibmcloud fn package get <cloudant_package_name> parameters
   ```
 
-* **cloudant_api_key**: url di connessione al package Cloudant. Recuperabile tramite
+* **cloudant_api_key**: api key per l'accesso al package Cloudant (attributo 'apikey'). Recuperabile tramite
 
 ```bash
   ibmcloud fn package get <cloudant_package_name> parameters
