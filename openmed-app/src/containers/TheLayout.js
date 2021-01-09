@@ -10,7 +10,7 @@ const TheLayout = () => {
     apiServer.interceptors.request.use(
       function (config) {
         if (keycloak.tokenParsed) {
-          config.headers.Authorization = 'Bearer ' + keycloak.token
+          config.headers.Authorization = `Bearer ${keycloak.token}`
         }
         return config
       },

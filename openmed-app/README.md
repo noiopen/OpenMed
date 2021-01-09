@@ -49,4 +49,3 @@ Partendo dal file ".env.template" creare il file ".env" impostando correttamente
 
 - `npm i` : da lanciare per installare i pacchetti necessari per avviare l'applicazione
 - `npm start` : lancia l'applicazione
-- `docker cp keycloak/themes/openmed keycloak:/opt/jboss/keycloak/themes` : copia del tema di openmed per keycloak nell'installazione locale di keycloak
