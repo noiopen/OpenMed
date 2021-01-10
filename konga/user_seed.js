@@ -1,13 +1,13 @@
 module.exports = [
     {
-        "username": "konga",
+        "username": "admin",
         "email": "admin@gmail.com",
         "firstName": "Admin",
         "lastName": "Admin",
         "node_id": "http://kong:8001",
         "admin": true,
         "active" : true,
-        "password": "admin"
+        "password": "admin123456"
     },
     {
         "username": "user",

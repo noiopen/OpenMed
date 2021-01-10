@@ -23,8 +23,8 @@ La configurazione di Kong e Konga non è automatica, pertanto, ad installazione 
 Per configurare Konga, accedere al [pannello di amministrazione](http://localhost:1337):
 
 ```bash
-user        : konga
-password    : admin
+user        : admin
+password    : admin123456
 ```
 
 ed impostare una nuova connessione verso l'installazione di Kong:
