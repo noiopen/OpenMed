@@ -33,7 +33,7 @@ La guida per la configurazione dell'ambiente di sviluppo è disponibile [qui](..
 
 - [Creare le API relative alle actions](../facility/README.md#creazione-api)
 
-- [Configurare un'istanza locale di KeyCloak](../docs/keycloak.md)
+- [Configurare un'istanza locale di KeyCloak + Kong](../docs/keycloak.md)
 
 ### Configurazione file .env
 
@@ -41,9 +41,9 @@ Partendo dal file ".env.template" creare il file ".env" impostando correttamente
 
 - **REACT_APP_URL**: è l'URL su cui è esposto questo client, usato per il redirect da Keycloak a login avvenuto. In sviluppo sarà: [http://localhost:3000](http://localhost:3000)
 
-- **REACT_APP_API_SERVER**: è l'URL dell'endpoint su cui sono esposte le API relative alle action. E' possibile recuperarlo dalla dashboard IBMCloud, alla pagina Functions -> API. Es: [https://123ab45c.eu-gb.apigw.appdomain.cloud](https://123ab45c.eu-gb.apigw.appdomain.cloud)
+- **REACT_APP_API_SERVER**: è l'URL dell'API server (Kong) attraverso cui sono esposte le API relative alle action. In sviluppo sarà: [http://localhost:8000](http://localhost:8000)
 
-- **REACT_APP_KEYCLOAK**: è l'URL dell'endpoint di Keycloak. In sviluppo sarà: [http://localhost:8080/auth](http://localhost:8080/auth)
+- **REACT_APP_KEYCLOAK**: è l'URL dell'endpoint di Keycloak. In sviluppo sarà: [https://172.33.0.100:8443/auth/](https://172.33.0.100:8443/auth/)
 
 ## Comandi Utili
 
