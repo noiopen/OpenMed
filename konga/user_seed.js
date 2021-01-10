@@ -7,7 +7,7 @@ module.exports = [
         "node_id": "http://kong:8001",
         "admin": true,
         "active" : true,
-        "password": "admin123456"
+        "password": "admin123456admin"
     },
     {
         "username": "user",
