@@ -24,7 +24,7 @@ services:
     image: quay.io/keycloak/keycloak:latest
     container_name: keycloak
     ports:
-      - 8080:8080
+      - 8443:8443
     environment:
       KEYCLOAK_USER: admin
       KEYCLOAK_PASSWORD: admin
