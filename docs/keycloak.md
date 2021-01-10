@@ -8,7 +8,14 @@ Questi tre componenti permettono di gestire l'autenticazione e l'accesso alle ri
 
 Gli applicativi vengono lanciati via docker con una configurazione base che rende funzionante la piattaforma fin dalla prima installazione.
 
-Nella directory principale del progetto, lanciare:
+La prima volta che vengono lanciati i container, bisogna effettuare la migrazione dei db di kong e konga. Questa è un'operazione una tantum\
+Per fare questo, nella directory principale del progetto lanciare:
+
+```bash
+docker-compose up -d kong-db-postgres kong-migration konga-db-postgres konga-migration
+```
+
+Una volta che le migrazioni sono state completate è possibile lanciare tutti i componenti con il seguente comando, dalla directory principale del progetto:
 
 ```bash
 docker-compose up -d
