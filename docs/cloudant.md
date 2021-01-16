@@ -91,3 +91,4 @@
 * Nella pagina 'Databases' creare il database 'facility'
 
 * Accedere al database appena creato e creare i documenti fittizi elencati nel file [facility.json](../facility/models/facility.json)
+  N.B. Bisogna inserire un documento per ogni elemento del file json
