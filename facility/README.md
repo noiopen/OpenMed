@@ -43,7 +43,7 @@ Le API di IBMCloud permettono di creare uno strato di interfaccia che disaccoppi
 
 * creare le seguenti operazioni:
   * endpoint per **getFacilities**
-    * Percorso: /nearest
+    * Percorso: /list
     * Verbo: GET
     * Package: facility
     * Azione: getFacilities
@@ -55,10 +55,10 @@ Le API di IBMCloud permettono di creare uno strato di interfaccia che disaccoppi
     * Azione: getNearestFacilities
     * Tipo di contenuto: application/json
   * endpoint per **getCoordinatesByAddress**
-    * Percorso: /nearest
+    * Percorso: /coordinatesByAddress
     * Verbo: GET
     * Package: facility
-    * Azione: getNearestFacilities
+    * Azione: getCoordinatesByAddress
     * Tipo di contenuto: application/json
 
 * lasciare gli altri parametri ai valori di default e salvare le modifiche
