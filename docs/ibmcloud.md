@@ -2,7 +2,7 @@
 
 ## Configurazione
 
-- Creare un account personale su [IBMCloud](https://cloud.ibm.com/registration):
+- Creare un account personale su [IBMCloud](https://cloud.ibm.com/registration) selezionando la region 'eu-gb' (altre region non hanno tutte le risorse disponibili):
 - Scaricare la CLI:
 
   ```bash
