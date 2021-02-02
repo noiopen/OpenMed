@@ -88,6 +88,6 @@
 
 * Dalla pagina di dettaglio del servizio lanciare la dashboard Cloudant
 
-* Nella pagina 'Databases' creare il database 'facility'
+* Nella pagina 'Databases' creare il database 'facility' non partizionato
 
 * Accedere al database e creare un documento per ogni oggetto dell'array del modello [facility.json](../facility/models/facility.json)
