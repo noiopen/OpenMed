@@ -27,6 +27,7 @@ Nessun parametro
 * Creazione dello zip: posizionarsi nella directory "getNearestFacilitiesFromList" e lanciare
 
   ```bash
+  npm i
   zip -r getNearestFacilitiesFromList .
   ```
 
