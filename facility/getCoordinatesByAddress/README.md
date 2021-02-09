@@ -32,6 +32,7 @@ Restituisce un oggetto contenente, oltre all'esito della richiesta, una coppia d
 * Creazione dello zip: posizionarsi nella directory "getCoordinatesByAddress" e lanciare
 
   ```bash
+  npm i
   zip -r getCoordinatesByAddress .
   ```
 
