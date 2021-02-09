@@ -36,6 +36,7 @@ Nessun parametro
 * Creazione dello zip: posizionarsi nella directory "getFacilities" e lanciare
 
   ```bash
+  npm i
   zip -r getFacilities .
   ```
 
