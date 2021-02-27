@@ -1,12 +1,12 @@
+const dotenv = require('dotenv')
+const Nominatim = require('nominatim-geocoder')
+const geocoder = new Nominatim()
+
 /**
  *
  * @param {*} params
  */
 async function getCoordinatesByAddress(params) {
- 
-  const dotenv = require('dotenv')
-  const Nominatim = require('nominatim-geocoder')
-  const geocoder = new Nominatim()
 
   // TODO useless??
   dotenv.config()
@@ -36,4 +36,8 @@ async function getCoordinatesByAddress(params) {
   }
 }
 
+// webpack
+global.main = getCoordinatesByAddress
+
+// jest
 exports.main = getCoordinatesByAddress
