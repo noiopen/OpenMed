@@ -11,6 +11,7 @@ async function getFacilities() {
 }
 
 async function getCoordinatesByAddress(address) {
+  console.log(encodeURIComponent(address))
   return await apiServer
     .get('/facility/coordinatesByAddress?address=' + encodeURIComponent(address))
     .then((res) => Promise.resolve(res.data.payload))

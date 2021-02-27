@@ -45,24 +45,7 @@ Kong admin URL    : http://kong:8001/
 
 La prima configurazione di Kong può essere fatta via GUI attraverso Konga o lanciando le seguente chiamate CURL. Prima di lanciare le chiamate CURL è necessario impostare l' "API_SERVER", ovvero l'endpoint sul quale sono state configurate le [API di OpenMED](./ibmcloud.md):
 
-```bash
-# Configurazione del servizio getFacilities
-curl -i -X POST \
---url http://localhost:8001/services/ \
---data 'name=getFacilities' \
---data 'url=**API_SERVER**/facility/list'
-```
-
-```bash
-# Configurazione della route getFacilities 
-curl -i -X POST \
- --url http://localhost:8001/services/getFacilities/routes \
- --data 'strip_path=true' \
- --data 'name=getFacilitiesRoute' \
- --data 'paths[]=/facility/list' \
- --data 'methods[1]=GET' \
- --data 'methods[2]=OPTIONS'
- ```
+### Plugin
 
 ```bash
 # Configurazione del plugin jwt-keycloak
@@ -123,6 +106,123 @@ curl -i -X POST http://localhost:8001/services/getFacilities/plugins \
     --data "config.credentials=true" \
     --data "config.max_age=3600"
 ```
+
+L'attivazione dei plugin può essere fatta anche a livello globale, e quindi non è più necessario specificarla per ogni servizio:
+
+```bash
+# Configurazione del plugin jwt-keycloak
+curl -i -X POST http://localhost:8001/plugins \
+--data name="jwt-keycloak" \
+--data "config.uri_param_names=jwt" \
+--data "config.claims_to_verify=exp" \
+--data "config.run_on_preflight=true" \
+--data "config.maximum_expiration=0" \
+--data "config.algorithm=RS256" \
+--data "config.allowed_iss=https://172.33.0.100:8443/auth/realms/OpenMED" \
+--data "config.iss_key_grace_period=10" \
+--data "config.well_known_template=%25s/.well-known/openid-configuration" \
+--data "config.consumer_match_claim=azp"
+```
+
+```bash
+# Configurazione del plugin cors
+curl -i -X POST http://localhost:8001/plugins \
+    --data "name=cors"  \
+    --data "config.origins=http://localhost:3000" \
+    --data "config.methods=GET" \
+    --data "config.methods=POST" \
+    --data "config.methods=PUT" \
+    --data "config.methods=PATCH" \
+    --data "config.methods=DELETE" \
+    --data "config.methods=OPTIONS" \
+    --data "config.headers=Accept" \
+    --data "config.headers=Accept-Version" \
+    --data "config.headers=Content-Length" \
+    --data "config.headers=Content-MD5" \
+    --data "config.headers=Content-Type" \
+    --data "config.headers=Date" \
+    --data "config.headers=X-Auth-Token" \
+    --data "config.headers=X-Requested-With" \
+    --data "config.headers=Access-Control-Allow-Origin" \
+    --data "config.headers=Access-Control-Allow-Headers" \
+    --data "config.headers=User-Agent" \
+    --data "config.headers=Origin" \
+    --data "config.headers=Authorization" \
+    --data "config.headers=Referer" \
+    --data "config.exposed_headers=Accept" \
+    --data "config.exposed_headers=Accept-Version" \
+    --data "config.exposed_headers=Content-Length" \
+    --data "config.exposed_headers=Content-MD5" \
+    --data "config.exposed_headers=Content-Type" \
+    --data "config.exposed_headers=Date" \
+    --data "config.exposed_headers=X-Auth-Token" \
+    --data "config.exposed_headers=X-Requested-With" \
+    --data "config.exposed_headers=Access-Control-Allow-Origin" \
+    --data "config.exposed_headers=Access-Control-Allow-Headers" \
+    --data "config.exposed_headers=User-Agent" \
+    --data "config.exposed_headers=Origin" \
+    --data "config.exposed_headers=Authorization" \
+    --data "config.exposed_headers=Referer" \
+    --data "config.credentials=true" \
+    --data "config.max_age=3600"
+```
+
+### Configurazione del servizio e della route getFacilities
+
+```bash
+curl -i -X POST \
+--url http://localhost:8001/services/ \
+--data 'name=getFacilities' \
+--data 'url=**API_SERVER**/facility/list'
+```
+
+```bash
+curl -i -X POST \
+ --url http://localhost:8001/services/getFacilities/routes \
+ --data 'strip_path=true' \
+ --data 'name=getFacilitiesRoute' \
+ --data 'paths[]=/facility/list' \
+ --data 'methods[1]=GET' \
+ --data 'methods[2]=OPTIONS'
+ ```
+
+### Configurazione del servizio e della route getCoordinatesByAddress
+
+```bash
+curl -i -X POST \
+--url http://localhost:8001/services/ \
+--data 'name=getCoordinatesByAddress' \
+--data 'url=**API_SERVER**/facility/coordinatesByAddress'
+```
+
+```bash
+curl -i -X POST \
+ --url http://localhost:8001/services/getCoordinatesByAddress/routes \
+ --data 'strip_path=true' \
+ --data 'name=getCoordinatesByAddressRoute' \
+ --data 'paths[]=/facility/coordinatesByAddress' \
+ --data 'methods[1]=GET' \
+ --data 'methods[2]=OPTIONS'
+ ```
+
+### Configurazione del servizio e della route getNearestFacilities
+
+ ```bash
+curl -i -X POST \
+--url http://localhost:8001/services/ \
+--data 'name=getNearestFacilities' \
+--data 'url=**API_SERVER**/facility/nearest'
+```
+
+```bash
+curl -i -X POST \
+ --url http://localhost:8001/services/getNearestFacilities/routes \
+ --data 'strip_path=true' \
+ --data 'name=getNearestFacilitiesRoute' \
+ --data 'paths[]=/facility/nearest' \
+ --data 'methods[1]=GET' \
+ --data 'methods[2]=OPTIONS'
+ ```
 
 A questo punto è possibile lanciare l'[applicazione utente](../openmed-app/README.md) ed accedere con l'utente "user" creato automaticamente:
 

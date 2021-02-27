@@ -2,10 +2,13 @@
  *
  * @param {*} params
  */
-async function getCoordinatesByAddress (params) {
+async function getCoordinatesByAddress(params) {
+ 
   const dotenv = require('dotenv')
-  const fetch = require('node-fetch')
+  const Nominatim = require('nominatim-geocoder')
+  const geocoder = new Nominatim()
 
+  // TODO useless??
   dotenv.config()
 
   // check params
@@ -16,25 +19,19 @@ async function getCoordinatesByAddress (params) {
     throw Error('The input params are invalid: address unavailable')
   }
 
-  const endpoint = process.env.gmaps_endpoint
-  const apiKey = process.env.gmaps_api_key
+  const addressToSearch = params.address
+  const results = await geocoder.search({ q: addressToSearch })
 
-  // call Google Maps
-  const geocodingResponse = await fetch(endpoint +
-    '?address=' + encodeURI(params.address) +
-    '&key=' + apiKey +
-    '&region=it')
-
-  const outcome = await geocodingResponse.json()
-  const firstResult = outcome.results[0]
+  // TODO get only the first item??
+  const firstResult = results[0]
 
   // return coordinates
   return {
-    status: outcome.status,
+    status: 'OK',
     payload: {
-      lat: firstResult.geometry.location.lat,
-      lon: firstResult.geometry.location.lng,
-      address: firstResult.formatted_address
+      lat: firstResult.lat,
+      lon: firstResult.lon,
+      address: firstResult.display_name
     }
   }
 }
