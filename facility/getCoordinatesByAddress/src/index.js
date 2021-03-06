@@ -1,4 +1,3 @@
-const dotenv = require('dotenv')
 const Nominatim = require('nominatim-geocoder')
 const geocoder = new Nominatim()
 
@@ -8,8 +7,6 @@ const geocoder = new Nominatim()
  */
 async function getCoordinatesByAddress(params) {
 
-  // TODO useless??
-  dotenv.config()
 
   // check params
   if (!params) {

@@ -13,7 +13,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "dotenv": "^8.2.0",
     "nominatim-geocoder": "^0.1.4"
   },
   "devDependencies": {
