@@ -19,7 +19,7 @@ async function getCoordinatesByAddress(params) {
   const addressToSearch = params.address
   const results = await geocoder.search({ q: addressToSearch })
 
-  // TODO get only the first item??
+  // for now we get the place with the greatest value in "importance" attribute
   const firstResult = results[0]
 
   // return coordinates
