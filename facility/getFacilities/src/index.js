@@ -1,6 +1,6 @@
-async function getFacilities (params) {
-  const Cloudant = require('./cloudant')
+const Cloudant = require('./cloudant')
 
+async function getFacilities () {
   const facilitiesDb = Cloudant.cloudant.db.use('facility')
 
   const data = await facilitiesDb.list({ include_docs: true })
@@ -15,4 +15,8 @@ async function getFacilities (params) {
   }
 }
 
+// webpack
+global.main = getFacilities
+
+// jest
 exports.main = getFacilities
