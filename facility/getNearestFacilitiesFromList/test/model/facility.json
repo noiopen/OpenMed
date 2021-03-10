@@ -1,152 +1,152 @@
 [
-    {
-        "id": 1,
-        "name": "REMEDYREPACK INC.",
-        "email": "nnornasell0@barnesandnoble.com",
-        "address": {
-            "street": "7804 Northfield Trail",
-            "town": "Dallas",
-            "state": "Texas",
-            "stateCode": "TX",
-            "zip": "75287"
-        },
-        "domain_identifier": "Echo 1",
-        "latitude": 33.0005,
-        "longitude": -96.8314
+  {
+    "id": 1,
+    "name": "REMEDYREPACK INC.",
+    "email": "nnornasell0@barnesandnoble.com",
+    "address": {
+      "street": "7804 Northfield Trail",
+      "town": "Dallas",
+      "state": "Texas",
+      "stateCode": "TX",
+      "zip": "75287"
     },
-    {
-        "id": 2,
-        "name": "DZA Brands LLC",
-        "email": "lruston1@issuu.com",
-        "address": {
-            "street": "62645 Sloan Crossing",
-            "town": "Philadelphia",
-            "state": "Pennsylvania",
-            "stateCode": "PA",
-            "zip": "19125"
-        },
-        "domain_identifier": "Echo 2",
-        "latitude": 39.9788,
-        "longitude": -75.1262
+    "domain_identifier": "Echo 1",
+    "latitude": 33.0005,
+    "longitude": -96.8314
+  },
+  {
+    "id": 2,
+    "name": "DZA Brands LLC",
+    "email": "lruston1@issuu.com",
+    "address": {
+      "street": "62645 Sloan Crossing",
+      "town": "Philadelphia",
+      "state": "Pennsylvania",
+      "stateCode": "PA",
+      "zip": "19125"
     },
-    {
-        "id": 3,
-        "name": "OMG Medical Group, LLC",
-        "email": "divanshintsev2@hubpages.com",
-        "address": {
-            "street": "26186 Ronald Regan Alley",
-            "town": "New York City",
-            "state": "New York",
-            "stateCode": "NY",
-            "zip": "10045"
-        },
-        "domain_identifier": "Victor",
-        "latitude": 40.7086,
-        "longitude": -74.0087
+    "domain_identifier": "Echo 2",
+    "latitude": 39.9788,
+    "longitude": -75.1262
+  },
+  {
+    "id": 3,
+    "name": "OMG Medical Group, LLC",
+    "email": "divanshintsev2@hubpages.com",
+    "address": {
+      "street": "26186 Ronald Regan Alley",
+      "town": "New York City",
+      "state": "New York",
+      "stateCode": "NY",
+      "zip": "10045"
     },
-    {
-        "id": 4,
-        "name": "TRP Company",
-        "email": "cdoull3@flavors.me",
-        "address": {
-            "street": "77 Tomscot Park",
-            "town": "Billings",
-            "state": "Montana",
-            "stateCode": "MT",
-            "zip": "59112"
-        },
-        "domain_identifier": "Yankee",
-        "latitude": 45.9783,
-        "longitude": -108.1945
+    "domain_identifier": "Victor",
+    "latitude": 40.7086,
+    "longitude": -74.0087
+  },
+  {
+    "id": 4,
+    "name": "TRP Company",
+    "email": "cdoull3@flavors.me",
+    "address": {
+      "street": "77 Tomscot Park",
+      "town": "Billings",
+      "state": "Montana",
+      "stateCode": "MT",
+      "zip": "59112"
     },
-    {
-        "id": 5,
-        "name": "Sanum Kehlbeck GmbH & Co. KG",
-        "email": "scromar4@vimeo.com",
-        "address": {
-            "street": "3 Mallard Trail",
-            "town": "Galveston",
-            "state": "Texas",
-            "stateCode": "TX",
-            "zip": "77554"
-        },
-        "domain_identifier": "Delta",
-        "latitude": 29.2243,
-        "longitude": -94.9637
+    "domain_identifier": "Yankee",
+    "latitude": 45.9783,
+    "longitude": -108.1945
+  },
+  {
+    "id": 5,
+    "name": "Sanum Kehlbeck GmbH & Co. KG",
+    "email": "scromar4@vimeo.com",
+    "address": {
+      "street": "3 Mallard Trail",
+      "town": "Galveston",
+      "state": "Texas",
+      "stateCode": "TX",
+      "zip": "77554"
     },
-    {
-        "id": 6,
-        "name": "Rebel Distributors Corp.",
-        "email": "dfarfull5@ebay.com",
-        "address": {
-            "street": "46 Kingsford Hill",
-            "town": "Dayton",
-            "state": "Ohio",
-            "stateCode": "OH",
-            "zip": "45408"
-        },
-        "domain_identifier": "Lima",
-        "latitude": 39.7395,
-        "longitude": -84.229
+    "domain_identifier": "Delta",
+    "latitude": 29.2243,
+    "longitude": -94.9637
+  },
+  {
+    "id": 6,
+    "name": "Rebel Distributors Corp.",
+    "email": "dfarfull5@ebay.com",
+    "address": {
+      "street": "46 Kingsford Hill",
+      "town": "Dayton",
+      "state": "Ohio",
+      "stateCode": "OH",
+      "zip": "45408"
     },
-    {
-        "id": 7,
-        "name": "Water-Jel Technologies",
-        "email": "ssignore6@slate.com",
-        "address": {
-            "street": "95 Prairieview Lane",
-            "town": "Atlanta",
-            "state": "Georgia",
-            "stateCode": "GA",
-            "zip": "30356"
-        },
-        "domain_identifier": "Juliett",
-        "latitude": 33.8913,
-        "longitude": -84.0746
+    "domain_identifier": "Lima",
+    "latitude": 39.7395,
+    "longitude": -84.229
+  },
+  {
+    "id": 7,
+    "name": "Water-Jel Technologies",
+    "email": "ssignore6@slate.com",
+    "address": {
+      "street": "95 Prairieview Lane",
+      "town": "Atlanta",
+      "state": "Georgia",
+      "stateCode": "GA",
+      "zip": "30356"
     },
-    {
-        "id": 8,
-        "name": "Insight Pharmaceuticals",
-        "email": "bzielinski7@seattletimes.com",
-        "address": {
-            "street": "614 Oriole Court",
-            "town": "Springfield",
-            "state": "Missouri",
-            "stateCode": "MO",
-            "zip": "65805"
-        },
-        "domain_identifier": "Mike",
-        "latitude": 37.2581,
-        "longitude": -93.3437
+    "domain_identifier": "Juliett",
+    "latitude": 33.8913,
+    "longitude": -84.0746
+  },
+  {
+    "id": 8,
+    "name": "Insight Pharmaceuticals",
+    "email": "bzielinski7@seattletimes.com",
+    "address": {
+      "street": "614 Oriole Court",
+      "town": "Springfield",
+      "state": "Missouri",
+      "stateCode": "MO",
+      "zip": "65805"
     },
-    {
-        "id": 9,
-        "name": "Beiersdorf Inc",
-        "email": "hmaior8@ted.com",
-        "address": {
-            "street": "7426 Caliangt Way",
-            "town": "Akron",
-            "state": "Ohio",
-            "stateCode": "OH",
-            "zip": "44310"
-        },
-        "domain_identifier": "Oscar",
-        "latitude": 41.1075,
-        "longitude": -81.5006
+    "domain_identifier": "Mike",
+    "latitude": 37.2581,
+    "longitude": -93.3437
+  },
+  {
+    "id": 9,
+    "name": "Beiersdorf Inc",
+    "email": "hmaior8@ted.com",
+    "address": {
+      "street": "7426 Caliangt Way",
+      "town": "Akron",
+      "state": "Ohio",
+      "stateCode": "OH",
+      "zip": "44310"
     },
-    {
-        "id": 10,
-        "name": "Alcon Laboratories, Inc.",
-        "email": "kgorusso9@printfriendly.com",
-        "address": {
-            "street": "7 Di Loreto Park",
-            "town": "Saint Louis",
-            "state": "Missouri",
-            "stateCode": "MO",
-            "zip": "63143"
-        },
-        "domain_identifier": "Delta",
-        "latitude": 38.6111,
-        "longitude": -90.3225
-    }
+    "domain_identifier": "Oscar",
+    "latitude": 41.1075,
+    "longitude": -81.5006
+  },
+  {
+    "id": 10,
+    "name": "Alcon Laboratories, Inc.",
+    "email": "kgorusso9@printfriendly.com",
+    "address": {
+      "street": "7 Di Loreto Park",
+      "town": "Saint Louis",
+      "state": "Missouri",
+      "stateCode": "MO",
+      "zip": "63143"
+    },
+    "domain_identifier": "Delta",
+    "latitude": 38.6111,
+    "longitude": -90.3225
+  }
 ]

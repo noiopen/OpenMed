@@ -10,27 +10,27 @@ Nessun parametro
 
 ### Parametri action
 
-* **latitude**: latitudine del punto geografico di riferimento
+- **latitude**: latitudine del punto geografico di riferimento
 
-* **longitude**: latitudine del punto geografico di riferimento
+- **longitude**: latitudine del punto geografico di riferimento
 
-* **facilities**: array di oggetti contenenti degli attributi _latitude_ e _longitude_
+- **facilities**: array di oggetti contenenti degli attributi _latitude_ e _longitude_
 
 ### Definizione action
 
-* Creazione package, se inesistente
+- Creazione package, se inesistente
 
   ```bash
   ibmcloud fn package create facility
   ```
 
-* Creazione dello zip: posizionarsi nella directory "getNearestFacilitiesFromList" e lanciare
+- Creazione dello zip: posizionarsi nella directory "getNearestFacilitiesFromList" e lanciare
 
   ```bash
   zip -r getNearestFacilitiesFromList .
   ```
 
-* Creazione action
+- Creazione action
 
   ```bash
   ibmcloud fn action create facility/getNearestFacilitiesFromList --kind nodejs:12 getNearestFacilitiesFromList.zip
@@ -44,26 +44,25 @@ Nessun parametro
 
 ### Esempio chiamata
 
-  ```bash
-  ibmcloud fn action invoke --result facility/getNearestFacilitiesFromList --param latitude 56.90 --param longitude 45.90 --param facilities '[{ "_id": "1363d15e2478f02c518b2361dc00d4e9", "_rev": "2-48da62fa322aa03fc6e17d399bdedf0c", "address": { "state": "Ohio", "stateCode": "OH", "street": "7426 Caliangt Way", "town": "Akron", "zip": "44310" }, "domain_identifier": "Oscar", "email": "hmaior8@ted.com", "latitude": 41.1075, "longitude": -81.5006, "name": "Beiersdorf Inc" }]'
+```bash
+ibmcloud fn action invoke --result facility/getNearestFacilitiesFromList --param latitude 56.90 --param longitude 45.90 --param facilities '[{ "_id": "1363d15e2478f02c518b2361dc00d4e9", "_rev": "2-48da62fa322aa03fc6e17d399bdedf0c", "address": { "state": "Ohio", "stateCode": "OH", "street": "7426 Caliangt Way", "town": "Akron", "zip": "44310" }, "domain_identifier": "Oscar", "email": "hmaior8@ted.com", "latitude": 41.1075, "longitude": -81.5006, "name": "Beiersdorf Inc" }]'
 
-  > {
-      "payload": {
-        "_id": "1363d15e2478f02c518b2361dc00d4e9",
-        "_rev": "2-48da62fa322aa03fc6e17d399bdedf0c",
-        "address": {
-            "state": "Ohio",
-            "stateCode": "OH",
-            "street": "7426 Caliangt Way",
-            "town": "Akron",
-            "zip": "44310"
-        },
-        "domain_identifier": "Oscar",
-        "email": "hmaior8@ted.com",
-        "latitude": 41.1075,
-        "longitude": -81.5006,
-        "name": "Beiersdorf Inc"
-      }
+> {
+    "payload": {
+      "_id": "1363d15e2478f02c518b2361dc00d4e9",
+      "_rev": "2-48da62fa322aa03fc6e17d399bdedf0c",
+      "address": {
+          "state": "Ohio",
+          "stateCode": "OH",
+          "street": "7426 Caliangt Way",
+          "town": "Akron",
+          "zip": "44310"
+      },
+      "domain_identifier": "Oscar",
+      "email": "hmaior8@ted.com",
+      "latitude": 41.1075,
+      "longitude": -81.5006,
+      "name": "Beiersdorf Inc"
     }
-  ```
-  
+  }
+```

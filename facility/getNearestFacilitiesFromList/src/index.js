@@ -2,8 +2,8 @@
  *
  * @param {*} params
  */
-async function getClosestFacilities (params) {
-// https://www.npmjs.com/package/geolib
+async function getClosestFacilities(params) {
+  // https://www.npmjs.com/package/geolib
   const geolib = require('geolib')
 
   // check params
@@ -32,7 +32,7 @@ async function getClosestFacilities (params) {
 
   // return closest facility
   return {
-    payload: nearestFacility
+    payload: nearestFacility,
   }
 }
 
