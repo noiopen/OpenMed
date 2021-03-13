@@ -45,6 +45,12 @@ Da terminale, nella directory principale del progetto:
 ## Esempio chiamata
 
 ```bash
+npm run invoke:action
+```
+
+oppure per specifica un indirizzo:
+
+```bash
 ibmcloud fn action invoke --result facility/getCoordinatesByAddress --param address "via Paolo Fabbri 43, Bologna"
 
 > {

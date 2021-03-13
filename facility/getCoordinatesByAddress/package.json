@@ -8,7 +8,8 @@
     "eslint": "eslint",
     "create:ibmcloud": "npx webpack --config webpack.config.js && ibmcloud fn action create facility/getCoordinatesByAddress --kind nodejs:12 dist/bundle.js",
     "deploy:ibmcloud": "ibmcloud fn action update facility/getCoordinatesByAddress --kind nodejs:12 dist/bundle.js",
-    "deploy": "npx webpack --config webpack.config.js && npm run deploy:ibmcloud"
+    "deploy": "npx webpack --config webpack.config.js && npm run deploy:ibmcloud",
+    "invoke:action": "ibmcloud fn action invoke --result facility/getCoordinatesByAddress --param address 'via Paolo Fabbri 43, Bologna'"
   },
   "author": "",
   "license": "ISC",

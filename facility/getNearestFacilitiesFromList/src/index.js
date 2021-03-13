@@ -36,4 +36,6 @@ async function getClosestFacilities(params) {
   }
 }
 
+global.main = getClosestFacilities
+
 exports.main = getClosestFacilities

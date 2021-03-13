@@ -18,28 +18,36 @@ Nessun parametro
 
 ### Definizione action
 
+Da terminale, nella directory principale del progetto:
+
+- eseguire il login su ibmcloud
+
+  ```bash
+  ibmcloud login
+  ```
+
+  se necessario, impostare il "target", come ad esempio:
+
+  ```bash
+  ibmcloud target -o "tua_mail" -s "dev" -g Default
+  ```
+
 - Creazione package, se inesistente
 
   ```bash
   ibmcloud fn package create facility
   ```
 
-- Creazione dello zip: posizionarsi nella directory "getNearestFacilitiesFromList" e lanciare
-
-  ```bash
-  zip -r getNearestFacilitiesFromList .
-  ```
-
 - Creazione action
 
   ```bash
-  ibmcloud fn action create facility/getNearestFacilitiesFromList --kind nodejs:12 getNearestFacilitiesFromList.zip
+  npm run create:ibmcloud
   ```
 
-  in caso di aggiornamento
+ in caso di modifiche, per deployare le nuove versioni si può utilizzare il seguente comando:
 
   ```bash
-  ibmcloud fn action update facility/getNearestFacilitiesFromList --kind nodejs:12 getNearestFacilitiesFromList.zip
+  npm run deploy
   ```
 
 ### Esempio chiamata
