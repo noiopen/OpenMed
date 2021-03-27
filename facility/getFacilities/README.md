@@ -9,8 +9,10 @@ Restituisce un array contenente gli oggetti presenti nel DB _facility_ su Clouda
 ```bash
 # posizionarsi nella directory "getFacilities"
 touch .env
-echo "cloudant_url=<env_variable_value>" >> .env
-echo "cloudant_api_key=<env_variable_value>" >> .env
+echo "### CLOUDANT" >> .env
+echo "CLOUDANT_URL=<env_variable_value>" >> .env
+echo "CLOUDANT_API_KEY=<env_variable_value>" >> .env
+echo "CLOUDANT_DATABASE=<env_variable_value>" >> .env
 ```
 
 ### Parametri .env
@@ -26,6 +28,30 @@ echo "cloudant_api_key=<env_variable_value>" >> .env
 ```bash
   ibmcloud fn package get <cloudant_package_name> parameters
 ```
+
+## Importazione dei dati
+
+Per popolare il database delle facility si può utilizzare la funzionalità di import:
+
+```bash
+  node src/utils/import-csv.js
+```
+
+Prima di lanciare lo script è necessario:
+
+- configurare il database: assicurarsi di aver impostato la variabile "CLOUDANT_DATABASE" nel file .env e di aver creato il database su cloudant
+- posizionare il file CSV nella directory "facility/models" ed aggiungere la variabile "IMPORT_CSV_FILENAME" nel file .env impostando il nome del file CSV da processare
+
+Il set di dai minimo è il seguente:
+
+- town
+- county
+- country (default è 'IT')
+
+Aggiungendo anche il codice postale e l'indirizzo chiaramente c'è la possibilità di ottenere le coordinate precise del posto.
+
+- postalcode
+- street
 
 ## Parametri action
 
@@ -59,11 +85,11 @@ Da terminale, nella directory principale del progetto:
   npm run create:ibmcloud
   ```
 
- in caso di modifiche, per deployare le nuove versioni si può utilizzare il seguente comando:
+in caso di modifiche, per deployare le nuove versioni si può utilizzare il seguente comando:
 
-  ```bash
-  npm run deploy
-  ```
+```bash
+npm run deploy
+```
 
 ## Esempio chiamata
 

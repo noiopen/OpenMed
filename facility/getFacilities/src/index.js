@@ -1,6 +1,6 @@
 const Cloudant = require('./cloudant')
 
-async function getFacilities () {
+async function getFacilities() {
   const facilitiesDb = Cloudant.cloudant.db.use('facility')
 
   const data = await facilitiesDb.list({ include_docs: true })
@@ -11,7 +11,7 @@ async function getFacilities () {
   }, [])
 
   return {
-    facilities: facilities
+    facilities: facilities,
   }
 }
 

@@ -3,8 +3,8 @@ const Cloudant = require('@cloudant/cloudant')
 
 dotenv.config()
 
-const url = process.env.cloudant_url
-const apiKey = process.env.cloudant_api_key
+const url = process.env.CLOUDANT_URL
+const apiKey = process.env.CLOUDANT_API_KEY
 
 const cloudant = new Cloudant({
   url: url,

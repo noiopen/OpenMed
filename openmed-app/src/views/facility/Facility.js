@@ -22,7 +22,6 @@ const Facility = (props) => {
         const facilityId = parseInt(
           props.match.params.id.substring(0, props.match.params.id.indexOf('&'))
         )
-
         const facility = facilities.filter((facility) => facility.id === facilityId)[0]
         setFacility(facility)
       }
@@ -36,9 +35,11 @@ const Facility = (props) => {
     const longitude = facility.longitude
     const point = [latitude, longitude]
     const address = facility.address.street
-    const city = facility.address.town
-    const zipCode = facility.address.zip
-    // const battalion = 'B10'
+    const town = facility.address.town
+    const postalcode = facility.address.postalcode
+    const county = facility.address.county
+    const state = facility.address.state
+    const country = facility.address.country
     const zoom = 13
 
     return (
@@ -47,20 +48,7 @@ const Facility = (props) => {
           <CCardHeader>{facility.name}</CCardHeader>
           <CCardBody>
             <p>Domain: {facility.domain_identifier}</p>
-            <p>
-              Address:
-              {' ' +
-                facility.address.street +
-                ', ' +
-                facility.address.zip +
-                ' ' +
-                facility.address.town +
-                ', ' +
-                facility.address.state +
-                ' (' +
-                facility.address.stateCode +
-                ')'}
-            </p>
+            <p>Address: {`${address}, ${postalcode} ${town}, ${county} ${state} (${country})`}</p>
             <p>Email: {facility.email}</p>
           </CCardBody>
         </CCard>
@@ -74,7 +62,7 @@ const Facility = (props) => {
               <Marker position={point} key={facility.id}>
                 <Popup>
                   <span>
-                    ADDRESS: {address}, {city} - {zipCode}
+                    ADDRESS: {address}, {town} - {postalcode}
                   </span>
                   <br />
                   {/* <span>BATTALION: {battalion}</span> */}
