@@ -161,7 +161,7 @@ async function importDataFromCSV() {
 
   // transform raw data
   const tranformedData = await transformData(rawData)
-  console.log(tranformedData)
+
   // insert row data
   insertDataOnDatabase(tranformedData)
 }
