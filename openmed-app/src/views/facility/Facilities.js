@@ -78,7 +78,7 @@ const Facilities = () => {
             <CListGroupItem key={idx}>
               <CLink
                 to={{
-                  pathname: '/facilities/' + facility.id,
+                  pathname: '/v1/facilities?id=' + facility.id,
                   facility: facility,
                 }}
               >

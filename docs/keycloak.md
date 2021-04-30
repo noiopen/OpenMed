@@ -2,9 +2,9 @@
 
 Questi tre componenti permettono di gestire l'autenticazione e l'accesso alle risorse:
 
-* Keycloak  --> Identity e Access Management (registrazione utente, login utente, gruppi di utenti, ecc.)
-* Kong      --> Api Gateway
-* Konga     --> GUI per la gestione di Kong
+- Keycloak --> Identity e Access Management (registrazione utente, login utente, gruppi di utenti, ecc.)
+- Kong --> Api Gateway
+- Konga --> GUI per la gestione di Kong
 
 Gli applicativi vengono lanciati via docker con una configurazione base che rende funzionante la piattaforma fin dalla prima installazione.
 
@@ -173,7 +173,7 @@ curl -i -X POST http://localhost:8001/plugins \
 curl -i -X POST \
 --url http://localhost:8001/services/ \
 --data 'name=getFacilities' \
---data 'url=**API_SERVER**/facility/list'
+--data 'url=**API_SERVER**/v1/facilities'
 ```
 
 ```bash
@@ -181,10 +181,10 @@ curl -i -X POST \
  --url http://localhost:8001/services/getFacilities/routes \
  --data 'strip_path=true' \
  --data 'name=getFacilitiesRoute' \
- --data 'paths[]=/facility/list' \
+ --data 'paths[]=/v1/facilities' \
  --data 'methods[1]=GET' \
  --data 'methods[2]=OPTIONS'
- ```
+```
 
 ### Configurazione del servizio e della route getCoordinatesByAddress
 
@@ -192,7 +192,7 @@ curl -i -X POST \
 curl -i -X POST \
 --url http://localhost:8001/services/ \
 --data 'name=getCoordinatesByAddress' \
---data 'url=**API_SERVER**/facility/coordinatesByAddress'
+--data 'url=**API_SERVER**/v1/facilities/coordinatesByAddress'
 ```
 
 ```bash
@@ -200,29 +200,10 @@ curl -i -X POST \
  --url http://localhost:8001/services/getCoordinatesByAddress/routes \
  --data 'strip_path=true' \
  --data 'name=getCoordinatesByAddressRoute' \
- --data 'paths[]=/facility/coordinatesByAddress' \
+ --data 'paths[]=/v1/facilities/coordinatesByAddress' \
  --data 'methods[1]=GET' \
  --data 'methods[2]=OPTIONS'
- ```
-
-### Configurazione del servizio e della route getNearestFacilities
-
- ```bash
-curl -i -X POST \
---url http://localhost:8001/services/ \
---data 'name=getNearestFacilities' \
---data 'url=**API_SERVER**/facility/nearest'
 ```
-
-```bash
-curl -i -X POST \
- --url http://localhost:8001/services/getNearestFacilities/routes \
- --data 'strip_path=true' \
- --data 'name=getNearestFacilitiesRoute' \
- --data 'paths[]=/facility/nearest' \
- --data 'methods[1]=GET' \
- --data 'methods[2]=OPTIONS'
- ```
 
 A questo punto è possibile lanciare l'[applicazione utente](../openmed-app/README.md) ed accedere con l'utente "user" creato automaticamente:
 
@@ -233,14 +214,14 @@ password    : user
 
 ## Tips
 
-* Il pannello di amministazione di Keycloak è disponibile al seguente indirizzo: [https://172.33.0.100:8443/auth](https://172.33.0.100:8443/auth). L'utenza di amministrazione è la seguente:
+- Il pannello di amministazione di Keycloak è disponibile al seguente indirizzo: [https://172.33.0.100:8443/auth](https://172.33.0.100:8443/auth). L'utenza di amministrazione è la seguente:
 
   ```bash
   user        : admin
   password    : admin
   ```
 
-* La configurazione OpenMED di Keycloak viene salvata sul file [openmed.json](../keycloak/config/openmed.json). Se modificata, è possibile esportarla lanciando il seguente comando:
+- La configurazione OpenMED di Keycloak viene salvata sul file [openmed.json](../keycloak/config/openmed.json). Se modificata, è possibile esportarla lanciando il seguente comando:
 
   ```bash
   docker-compose exec keycloak /opt/jboss/keycloak/bin/standalone.sh \
