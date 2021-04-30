@@ -1,7 +1,8 @@
-const Cloudant = require('./cloudant')
+const geolib = require('geolib')
 
 // set the facility database
-const facilityDB = Cloudant.cloudant.db.use('facility')
+const Cloudant = require('./cloudant')
+const facilityDB = Cloudant.cloudant.db.use(process.env.CLOUDANT_DATABASE)
 
 /**
  * GET /v1/facilities
@@ -27,8 +28,50 @@ async function getFacilityById(facilityId) {
 }
 
 /**
+ * Finds the single one nearest point to a reference coordinate.
+ * @param {*} latitude
+ * @param {*} longitude
+ * @param {*} facilities
+ */
+function findNearest(latitude, longitude, facilities) {
+  return geolib.findNearest({ latitude, longitude }, facilities)
+}
+
+/**
+ * Sorts an array of coords by distance to a reference coordinate
+ * @param {*} latitude
+ * @param {*} longitude
+ * @param {*} facilities
+ */
+function orderByDistance(latitude, longitude, facilities) {
+  return geolib.orderByDistance({ latitude, longitude }, facilities)
+}
+
+/**
  *
- * GET /v1/facilities?latitude=45.0043354&longitude=654.65464
+ * @param {*} latitude
+ * @param {*} longitude
+ * @returns
+ */
+async function getNearestFacilities(latitude, longitude) {
+  if (!longitude || !latitude) {
+    throw Error('The input params are invalid: longitude or latitude unavailable')
+  }
+
+  // get facilities
+  const facilities = await getAllFacilities()
+
+  // get nearest facilities
+  const nearestFacility = findNearest(latitude, longitude, facilities)
+
+  // return closest facility
+  return {
+    payload: nearestFacility,
+  }
+}
+
+/**
+ *
  * GET /v1/facilities?address="strada delle strade, 45 30920 Moncalieri TO"
  *
  * @param {*} params
@@ -39,6 +82,9 @@ async function getFacilities(params) {
   if (params && params.id) {
     // get facility
     facilities = await getFacilityById(params.id)
+  } else if (params && params.latitude && params.longitude) {
+    // get nearest facilities
+    facilities = await getNearestFacilities(params.latitude, params.longitude)
   } else {
     // get all the facilities
     facilities = await getAllFacilities()
@@ -55,3 +101,5 @@ global.main = getFacilities
 
 // jest
 exports.main = getFacilities
+exports.findNearest = findNearest
+exports.orderByDistance = orderByDistance
