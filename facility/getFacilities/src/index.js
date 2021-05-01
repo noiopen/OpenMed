@@ -20,8 +20,7 @@ async function getAllFacilities() {
 async function getFacilityById(facilityId) {
   if (facilityId.match(/^[0-9a-fA-F]{32}$/)) {
     const data = await facilityDB.find({ selector: { _id: facilityId } }, { include_docs: true })
-    const facility = data.docs
-    return { facility, total_rows: 1 }
+    return data.docs
   } else {
     throw Error(`The param value ${facilityId} is not a valid id value`)
   }
@@ -65,9 +64,7 @@ async function getNearestFacilities(latitude, longitude) {
   const nearestFacility = findNearest(latitude, longitude, facilities)
 
   // return closest facility
-  return {
-    payload: nearestFacility,
-  }
+  return  nearestFacility
 }
 
 /**
@@ -77,22 +74,21 @@ async function getNearestFacilities(latitude, longitude) {
  * @param {*} params
  * @returns
  */
-async function getFacilities(params) {
+async function getFacilities({ id, latitude, longitude }) {
   let facilities = null
-  if (params && params.id) {
+  if (id) {
     // get facility
-    facilities = await getFacilityById(params.id)
-  } else if (params && params.latitude && params.longitude) {
+    facilities = await getFacilityById(id)
+  } else if (latitude && longitude) {
     // get nearest facilities
-    facilities = await getNearestFacilities(params.latitude, params.longitude)
+    facilities = await getNearestFacilities(latitude, longitude)
   } else {
     // get all the facilities
     facilities = await getAllFacilities()
   }
 
   return {
-    rows: facilities,
-    totalRows: facilities.total_rows,
+    payload: facilities,
   }
 }
 

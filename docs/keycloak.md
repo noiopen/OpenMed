@@ -67,7 +67,7 @@ curl -i -X POST http://localhost:8001/services/getFacilities/plugins \
 curl -i -X POST http://localhost:8001/services/getFacilities/plugins \
     --data "name=cors"  \
     --data "config.origins=http://localhost:3000" \
-    --data "config.origins=**API_SERVER**/facilities/list" \
+    --data "config.origins=**API_SERVER**/v1/facilities" \
     --data "config.origins=*" \
     --data "config.methods=GET" \
     --data "config.methods=POST" \

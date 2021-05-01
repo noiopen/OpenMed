@@ -1,6 +1,5 @@
 /* eslint-disable react/prop-types */
 import React, { useEffect, useState } from 'react'
-import { useLocation } from 'react-router-dom'
 import { CSpinner, CCard, CCardHeader, CCardBody } from '@coreui/react'
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 
@@ -10,27 +9,21 @@ import { getFacilities } from '../../api/facility'
  *
  */
 
-const Facility = (props) => {
-  const [facility, setFacility] = useState(props.history.location.facility)
-  const location = useLocation()
+const Facility = ({ match }) => {
+  const [facility, setFacility] = useState([])
+  const  facilityId = match.params.id
 
   useEffect(() => {
     async function fetchFacility() {
-      if (!location.facility) {
-        const response = await getFacilities()
-        const facilities = await response
-        const facilityId = parseInt(
-          props.match.params.id.substring(0, props.match.params.id.indexOf('&'))
-        )
-        const facility = facilities.filter((facility) => facility.id === facilityId)[0]
-        setFacility(facility)
-      }
+      const data = await getFacilities(facilityId)
+      const facility = data[0]
+      setFacility(facility)
     }
 
     fetchFacility()
-  }, [props])
+  }, [facilityId])
 
-  if (facility) {
+  if (facility._id) {
     const latitude = facility.latitude
     const longitude = facility.longitude
     const point = [latitude, longitude]

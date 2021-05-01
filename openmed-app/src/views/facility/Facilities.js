@@ -20,8 +20,7 @@ const Facilities = () => {
 
   useEffect(() => {
     async function fetchFacilities() {
-      const response = await getFacilities()
-      const facilities = await response
+      const facilities = await getFacilities()
       setFacilities(facilities)
     }
 
@@ -78,8 +77,7 @@ const Facilities = () => {
             <CListGroupItem key={idx}>
               <CLink
                 to={{
-                  pathname: '/v1/facilities?id=' + facility.id,
-                  facility: facility,
+                  pathname: `/facilities/${facility._id}`
                 }}
               >
                 {facility.name}
