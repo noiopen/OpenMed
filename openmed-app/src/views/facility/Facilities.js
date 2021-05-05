@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { getFacilities, getNearestFacility, getCoordinatesByAddress } from '../../api/facility'
+import { getFacilities, getCoordinatesByAddress } from '../../api/facility'
 import {
   CSpinner,
   CListGroup,
@@ -14,6 +14,10 @@ import {
 } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
 
+/**
+ *
+ * @returns
+ */
 const Facilities = () => {
   const [address, setAddress] = useState('')
   const [facilities, setFacilities] = useState([])
@@ -27,14 +31,16 @@ const Facilities = () => {
     fetchFacilities()
   }, [])
 
+  /**
+   *
+   */
   async function getNearestFacilityByAddress() {
     setFacilities([])
-    const coordsResponse = await getCoordinatesByAddress(address)
-    const coordinates = await coordsResponse
+    const coordinates = await getCoordinatesByAddress(address)
     setAddress(coordinates.address)
 
-    const facilityResponse = await getNearestFacility(coordinates.lat, coordinates.lon)
-    const facility = await facilityResponse
+    const params = { latitude: coordinates.latitude, longitude: coordinates.longitude }
+    const facility = await getFacilities(params)
     setFacilities([facility])
   }
 
@@ -77,7 +83,7 @@ const Facilities = () => {
             <CListGroupItem key={idx}>
               <CLink
                 to={{
-                  pathname: `/facilities/${facility._id}`
+                  pathname: `/facilities/${facility._id}`,
                 }}
               >
                 {facility.name}

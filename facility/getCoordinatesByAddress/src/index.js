@@ -26,8 +26,8 @@ async function getCoordinatesByAddress(params) {
   return {
     status: 'OK',
     payload: {
-      lat: firstResult.lat,
-      lon: firstResult.lon,
+      latitude: firstResult.lat,
+      longitude: firstResult.lon,
       address: firstResult.display_name
     }
   }

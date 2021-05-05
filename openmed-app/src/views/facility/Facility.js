@@ -11,11 +11,12 @@ import { getFacilities } from '../../api/facility'
 
 const Facility = ({ match }) => {
   const [facility, setFacility] = useState([])
-  const  facilityId = match.params.id
+  const facilityId = match.params.id
 
   useEffect(() => {
     async function fetchFacility() {
-      const data = await getFacilities(facilityId)
+      const params = { id: facilityId }
+      const data = await getFacilities(params)
       const facility = data[0]
       setFacility(facility)
     }

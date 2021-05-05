@@ -23,8 +23,8 @@ describe('getCoordinatesByAddress integration tests', function () {
     }
     const response = await getCoordinatesByAddress.main(params)
     expect(response.status).toStrictEqual('OK')
-    expect(response.payload.lat).toStrictEqual('44.4949473')
-    expect(response.payload.lon).toStrictEqual('11.3630593')
+    expect(response.payload.latitude).toStrictEqual('44.4949473')
+    expect(response.payload.longitude).toStrictEqual('11.3630593')
     expect(response.payload.address).toStrictEqual(
       '43, Via Paolo Fabbri, Cirenaica, San Donato-San Vitale, Bologna, Emilia-Romagna, 40138, Italia'
     )
