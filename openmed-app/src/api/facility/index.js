@@ -2,29 +2,32 @@ import { apiServer } from '../../api/config'
 
 /**
  *
- * @param {*} params
+ * @returns
  */
-function prepareParams(params) {
-  if (params) {
-    if (params.id) {
-      return `?id=${params.id}`
-    }
-    if (params.latitude && params.longitude) {
-      return `?latitude=${params.latitude}&longitude=${params.longitude}`
-    }
-  }
-  return ''
+async function getFacilities() {
+  return await apiServer.get(`/v1/facilities`).then((res) => Promise.resolve(res.data.payload))
 }
 
 /**
  *
- * @param {*} params
+ * @param {*} facilityId
  * @returns
  */
-async function getFacilities(params) {
-  const parsedParams = prepareParams(params)
+async function getFacilityByFacilityId(facilityId) {
   return await apiServer
-    .get(`/v1/facilities${parsedParams}`)
+    .get(`/v1/facilities?id=${facilityId}`)
+    .then((res) => Promise.resolve(res.data.payload))
+}
+
+/**
+ *
+ * @param {*} latitude
+ * @param {*} longitude
+ * @returns
+ */
+async function getFacilityByCoordinates(latitude, longitude) {
+  return await apiServer
+    .get(`/v1/facilities?latitude=${latitude}&longitude=${longitude}`)
     .then((res) => Promise.resolve(res.data.payload))
 }
 
@@ -40,4 +43,4 @@ async function getCoordinatesByAddress(address) {
     .then((res) => Promise.resolve(res.data.payload))
 }
 
-export { getFacilities, getCoordinatesByAddress }
+export { getFacilities, getFacilityByFacilityId, getFacilityByCoordinates, getCoordinatesByAddress }

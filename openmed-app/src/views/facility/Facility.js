@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { CSpinner, CCard, CCardHeader, CCardBody } from '@coreui/react'
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 
-import { getFacilities } from '../../api/facility'
+import { getFacilityByFacilityId } from '../../api/facility'
 
 /**
  *
@@ -15,8 +15,7 @@ const Facility = ({ match }) => {
 
   useEffect(() => {
     async function fetchFacility() {
-      const params = { id: facilityId }
-      const data = await getFacilities(params)
+      const data = await getFacilityByFacilityId(facilityId)
       const facility = data[0]
       setFacility(facility)
     }

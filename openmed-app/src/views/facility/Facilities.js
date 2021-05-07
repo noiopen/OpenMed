@@ -1,5 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import { getFacilities, getCoordinatesByAddress } from '../../api/facility'
+import {
+  getFacilities,
+  getFacilityByCoordinates,
+  getCoordinatesByAddress,
+} from '../../api/facility'
 import {
   CSpinner,
   CListGroup,
@@ -39,8 +43,7 @@ const Facilities = () => {
     const coordinates = await getCoordinatesByAddress(address)
     setAddress(coordinates.address)
 
-    const params = { latitude: coordinates.latitude, longitude: coordinates.longitude }
-    const facility = await getFacilities(params)
+    const facility = await getFacilityByCoordinates(coordinates.latitude, coordinates.longitude)
     setFacilities([facility])
   }
 
