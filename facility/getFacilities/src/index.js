@@ -64,12 +64,10 @@ async function getNearestFacilities(latitude, longitude) {
   const nearestFacility = findNearest(latitude, longitude, facilities)
 
   // return closest facility
-  return  nearestFacility
+  return nearestFacility
 }
 
 /**
- *
- * GET /v1/facilities?address="strada delle strade, 45 30920 Moncalieri TO"
  *
  * @param {*} params
  * @returns

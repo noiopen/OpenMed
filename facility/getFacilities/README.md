@@ -1,8 +1,28 @@
 # Info action
 
+Questa action permette di recuperare i dati relativi agli ambulatori che sono presenti sulla piattaforma: la action si aspetta di poter leggere i dati da una collection _facility_ su Cloudant.
+
 ## Descrizione
 
-Restituisce un array contenente gli oggetti presenti nel DB _facility_ su Cloudant
+Questa action mette a disposizione una API per leggere e filtrare gli ambulatori. In particolare:
+
+- quando viene chiamata senza parametri, vengono restituite tutte gli ambulatori presenti
+
+```bash
+/v1/facilities
+```
+
+- quando viene chiamata con il parametro "id", viene restituito l'ambulatorio specifico
+
+```bash
+/v1/facilities?id=.......
+```
+
+- quando viene chiamata con i parametri "latitude" e "longitude", viene restituito l'ambulatorio più vicino al punto geografico indicato
+
+```bash
+/v1/facilities?latitude=.........&longitude=.........
+```
 
 ## Creazione del file .env
 
